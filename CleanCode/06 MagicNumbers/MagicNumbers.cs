@@ -3,13 +3,18 @@ namespace CleanCode.MagicNumbers
 {
     public class MagicNumbers
     {
+        const string approved = "1";
+        const string rejected = "2";
+
+        enum Status { approved = 1, rejected = 2 };
+
         public void ApproveDocument(int status)
         {
-            if (status == 1)
+            if (status == int(Status.approved))
             {
                 // ...
             }
-            else if (status == 2)
+            else if (status == int(Status.rejected))
             {
                 // ...
             }
@@ -19,13 +24,17 @@ namespace CleanCode.MagicNumbers
         {
             switch (status)
             {
-                case "1":
+                case approved:
                     // ...
                     break;
-                case "2":
+                case rejected:
                     // ...
                     break;
             }
+        }
+
+        
+
         }
     }
 }
