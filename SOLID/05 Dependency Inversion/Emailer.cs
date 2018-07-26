@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SOLID._05_Dependency_Inversion
 {
-    public class Emailer
+    public class Emailer : IGenerateWeatherAlert
     {
         public String generateWeatherAlert(String weatherConditions)
         {

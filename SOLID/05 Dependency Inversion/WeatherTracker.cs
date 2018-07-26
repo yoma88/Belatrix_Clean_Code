@@ -5,8 +5,8 @@ namespace SOLID._05_Dependency_Inversion
     public class WeatherTracker
     {
         String currentConditions;
-        Phone phone;
-        Emailer emailer;
+        IGenerateWeatherAlert phone;
+        IGenerateWeatherAlert emailer;
 
         public WeatherTracker()
         {
@@ -28,5 +28,10 @@ namespace SOLID._05_Dependency_Inversion
                 Console.WriteLine(alert);
             }
         }
+    }
+
+    public interface IGenerateWeatherAlert
+    {
+        String generateWeatherAlert(String weatherConditions);        
     }
 }

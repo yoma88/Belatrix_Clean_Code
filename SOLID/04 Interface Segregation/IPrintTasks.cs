@@ -6,12 +6,20 @@ namespace SOLID._04_Interface_Segregation
     {
         bool PrintContent(string content);
         bool ScanContent(string content);
-        bool FaxContent(string content);
         bool PhotoCopyContent(string content);
+    }
+
+    public interface IFaxContent
+    {
+        bool FaxContent(string content);   
+    }
+
+    public interface IPrintDuplexContent
+    {
         bool PrintDuplexContent(string content);
     }
 
-    public class HPLaserJet : IPrintTasks
+    public class HPLaserJet : IPrintTasks,IFaxContent, IPrintDuplexContent
     {
         public bool FaxContent(string content)
         {
@@ -48,14 +56,6 @@ namespace SOLID._04_Interface_Segregation
         public bool ScanContent(string content)
         {
             Console.WriteLine("Scan Done"); return true;
-        }
-        public bool PrintDuplexContent(string content)
-        {
-            return false;
-        }
-        public bool FaxContent(string content)
-        {
-            return false;
         }
     }
 }
